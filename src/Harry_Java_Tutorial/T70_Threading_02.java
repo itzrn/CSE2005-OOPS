@@ -33,4 +33,4 @@ public class T70_Threading_02 {
         myThread_02.start();
     }
 }
-// methods of java ---> https://docs.oracle.com/javase/7/docs/api/java/lang/Thread.html
+// methods in thread concept ---> https://docs.oracle.com/javase/7/docs/api/java/lang/Thread.html
