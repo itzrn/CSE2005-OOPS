@@ -1,7 +1,6 @@
 package CSI_VCODE;
 interface Anonymous{
     int getValue();
-    void getPrint();
 }
 public class Que_50 {
     private int a=90;
@@ -26,6 +25,5 @@ public class Que_50 {
         anonymous.getPrint(); want to make this line in use
         you have to make a method in interface class
          */
-        anonymous.getPrint();
     }
 }
