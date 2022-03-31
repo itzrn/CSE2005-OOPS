@@ -22,6 +22,8 @@ class MyThread_02 extends Thread{
             System.out.println();
             i++;
         }
+//        MyThread_01 myThread_01=new MyThread_01(); We can make object of
+//        any class in any method, not necessary only in main method
     }
 }
 public class T70_Threading_02 {
