@@ -18,12 +18,16 @@ class MyThread_02 extends Thread{
         int i =0;
         while (i<60000){
             System.out.println("My Chatting Thread2 is Running");
-            System.out.println("I am in Love!");
+            System.out.print("I am in Love! ");
+            aryan();
             System.out.println();
             i++;
         }
 //        MyThread_01 myThread_01=new MyThread_01(); We can make object of
 //        any class in any method, not necessary only in main method
+    }
+    private void aryan(){
+        System.out.println("Aryan");
     }
 }
 public class T70_Threading_02 {
