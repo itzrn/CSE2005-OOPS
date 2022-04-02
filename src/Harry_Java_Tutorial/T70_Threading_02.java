@@ -37,6 +37,13 @@ public class T70_Threading_02 {
         MyThread_02 myThread_02=new MyThread_02();
         myThread_01.start();
         myThread_02.start();
+        /*
+        The above same operation can be done by given thread as a parameter to a thread
+        Thread t=new Thread(new MyThread_01()); // (We can give parameter to a thread as target thread or target runnable)
+        MyThread_02 myThread_02=new MyThread_02();
+        t.start();
+        myThread_02.start();
+         */
     }
 }
 // methods in thread concept ---> https://docs.oracle.com/javase/7/docs/api/java/lang/Thread.html
