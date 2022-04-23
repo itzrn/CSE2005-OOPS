@@ -33,7 +33,7 @@ public class T70_Threading_01 {
         when we will call there methods then it will show something on the terminal window
          */
 
-        // using start() method, as it will do call methods internally, and manage the calling
+        // using start() method, as it will call methods internally, and manage the calling
         // of methods accordingly, like for some time cooking and for some time
         // chatting, which is visible in the terminal
         // window after stopping the infinite java program (means concurrency is happening), start() method is in thread.java file

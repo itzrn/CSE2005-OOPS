@@ -44,7 +44,7 @@ class BankQue_02 {
 
 }
 
-public class Que_02 {
+public class Que_02ArrayOfObject {
     public static void main(String[] args) {
         System.out.println("\t\t\tWelcome To ABC Bank");
         Scanner cs=new Scanner(System.in);

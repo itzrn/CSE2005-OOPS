@@ -34,7 +34,7 @@ public class T71_ThreadUsingRunnableInterface {
         MyThreadRunnable_02 myThreadRunnable_02=new MyThreadRunnable_02();
         Thread object_02=new Thread(myThreadRunnable_02);
 
-        object_01.start();
+        new Thread(object_01).start(); //new way to call Runnable method
         object_02.start();
     }
 }

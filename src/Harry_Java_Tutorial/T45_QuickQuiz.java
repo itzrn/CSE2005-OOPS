@@ -1,5 +1,5 @@
 package Harry_Java_Tutorial;
-class Animal{
+class T45_Animal{
     public void leg(){
         System.out.println("Have four legs");
     }
@@ -8,7 +8,7 @@ class Animal{
         System.out.println("Have 2 ears");
     }
 }
-class Dog extends Animal{
+class Dog extends T45_Animal {
     public void voice(){
         System.out.println("Voice of Dog ---> barks bhau bhau");
     }
