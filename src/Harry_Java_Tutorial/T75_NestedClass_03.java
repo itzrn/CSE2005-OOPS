@@ -6,7 +6,7 @@ class T75_NestedClass_03 {
 
         class Inner{
             public void main(String[]args){
-                System.out.println("main(){This main is non-static, bcz the class is Non-static in which this main method is}" +
+                System.out.println("main(){This main is non-static, bcz the Inner class is Non-static in which this main method is}" +
                         " method of Inner class");
                 System.out.println(args);
             }

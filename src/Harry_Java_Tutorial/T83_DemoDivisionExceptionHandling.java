@@ -19,7 +19,7 @@ public class T83_DemoDivisionExceptionHandling {
         if (b==0){
             try {
                 throw new myException083();
-            }catch (Exception e){
+            }catch (myException083 e){
                 System.out.println(e+"");
             }
         }else

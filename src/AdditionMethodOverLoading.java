@@ -38,11 +38,11 @@ class Add
 
     }
 }
-public class Addition extends Add{
+public class AdditionMethodOverLoading extends Add{
     public static void main(String[] args)
     {
         Scanner cs=new Scanner(System.in);
-        Addition sc=new Addition();
+        AdditionMethodOverLoading sc=new AdditionMethodOverLoading();
         System.out.println("method 1:sum:"+sc.add(cs.nextInt(), cs.nextInt()));
         System.out.println("method 2:sum:"+sc.add(cs.nextInt(), cs.nextDouble()));
         System.out.println("method 3:sum:"+sc.add(cs.nextDouble(), cs.nextInt()));

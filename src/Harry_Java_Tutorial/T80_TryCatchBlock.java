@@ -12,7 +12,7 @@ public class T80_TryCatchBlock {
 //        System.out.println("New Result ---> "+c);// ---> It will Give To handle The Arithmetic Exception
 //        so to handle the Above Exception
         try {
-            c=a/b;
+            c=a/b;//if the statement have any of error, compiler will go to catch and handle the Exception
         }catch (Exception e){
             System.out.println(e+"We fail to divide");
         }

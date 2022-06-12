@@ -17,7 +17,7 @@ public class T75_NestedClass_02 {
     class Inner_01 {// In static class we can call nonstatic main or nonstatic method
         private int ar=34;
 
-        public void print() {// But A non-static class with non-static main Method can only have object of non-static class
+        public void print() {// But A non-static class with non-static main Method can only access after having thr object of that non-static class
             Scanner sc = new Scanner(System.in);
             System.out.print("Enter number ---> ");
             T75_NestedClass_02 t75_nestedClass_02 = new T75_NestedClass_02();

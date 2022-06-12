@@ -28,7 +28,7 @@ public class T83_ExceptionClass {
             try {
                 System.out.println("Aryan");
                 throw myException;// or u can throw like ---> throw new MyException();(Making object of MyException Class)
-            }catch (Exception e){
+            }catch (MyException e){
                 System.out.println(e.getMessage());
                 System.out.println(e);// it is by-default understood as e.toString()
                 e.printStackTrace();// this is not error, what you will get in terminal,

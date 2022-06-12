@@ -23,9 +23,9 @@ public class T83_CustomException {
         int a = sc.nextInt();
         if (a<90){
             try {
-                throw myExceptionT83;//we throw object of Exception classes,
+                throw  myExceptionT83;//we throw object of Exception classes,
                 // Whenever Exception is Thrown, it's thrown in conditional statement, lie try catch, if-else,switch case
-            }catch (Exception e){
+            }catch (myException083 e){
 //                System.out.println(e.toString());
                 System.out.println(e.getMessage());
             }

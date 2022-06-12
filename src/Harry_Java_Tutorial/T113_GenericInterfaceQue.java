@@ -14,7 +14,12 @@ class PowerOFThree<T extends Number> implements Mathematics<T>{
     }
 }
 public class T113_GenericInterfaceQue {
+    static transient int anInt;
     public static void main(String[] args) {
+        //transient is applicable only for variable, not applicable for methods & local variable
+        //it is use for security purpose, transient keyword ignore the original value of variable, and set it
+        //at default value, transient means not to serialize
+        System.out.println(anInt);
         PowerOFThree<Integer>powerOFThree=new PowerOFThree<>();
         Integer a=Integer.valueOf(65);
         System.out.println(powerOFThree.powerOf(a));

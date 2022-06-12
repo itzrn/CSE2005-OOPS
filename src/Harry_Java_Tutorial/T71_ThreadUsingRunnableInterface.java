@@ -28,13 +28,13 @@ class MyThreadRunnable_02 implements Runnable{
 public class T71_ThreadUsingRunnableInterface {
     public static void main(String[] args) {
         //Second way to make Thread
-        //new mtlb --> object ka bnna, jo abhi bana h start nhi hua ha
+        //new(Keyword) mtlb --> object ka banana, jo abhi bana h start nhi hua ha
         MyThreadRunnable_01 myThreadRunnable_01=new MyThreadRunnable_01();
         Thread object_01=new Thread(myThreadRunnable_01);
         MyThreadRunnable_02 myThreadRunnable_02=new MyThreadRunnable_02();
         Thread object_02=new Thread(myThreadRunnable_02);
 
-        new Thread(object_01).start(); //new way to call Runnable method
+        new Thread(myThreadRunnable_01).start(); //new way to call Runnable method
         object_02.start();
     }
 }
