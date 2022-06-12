@@ -26,11 +26,16 @@ public class SelectionSort {
         for (Long aLong : longs) {
             System.out.print(aLong+" ");
         }
-
+//
         int[]a={2,3445,66,767,75345,2323,576,75674563,232};
         int[]b=sorting.bubbleSort(a);
         for (int j : b) {
             System.out.println(j+" ");
+        }
+
+        a=sorting.insertionSort(a);
+        for (int j : a) {
+            System.out.print(j + " ");
         }
     }
 }
