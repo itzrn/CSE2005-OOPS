@@ -107,7 +107,7 @@ public class LinkedListUser {
         return currentNode.next.data;
     }
 
-    public void addAt(int index,String string){//it will add a particular element at the given particular index
+    public void addAt(int index,String string){//it will add a particular element at the given particular index.
         Node newNode=new Node(string);
         Node currentNode=head;
         Node nextNode;
