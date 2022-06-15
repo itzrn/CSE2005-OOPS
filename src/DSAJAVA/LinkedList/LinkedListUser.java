@@ -1,7 +1,6 @@
 package DSAJAVA.LinkedList;
 
 import java.util.NoSuchElementException;
-
 public class LinkedListUser {
 
     public static class Node {
@@ -82,23 +81,21 @@ public class LinkedListUser {
     }
 
     public String removeFirst(){//it will remove the first element of the collection
+        Node t=head;
         head=head.next;
-        return head.data;
+        return t.data;
     }
 
-    public String remove(){//it will remove the last element of the collection
+    public void removeLast(){//it will remove the last element of the collection
         Node currentNode=head;
         for (int i=0;i<size()-2;i++){
             currentNode=currentNode.next;
         }
-        String string= currentNode.next.data;
         currentNode.next=null;
-        return string;
     }
 
     public String removeAt(int index){
         Node currentNode=head;
-        Node nextNode;
 
         for (int i=0;i<index-2;i++){
             currentNode=currentNode.next;
@@ -107,7 +104,7 @@ public class LinkedListUser {
         return currentNode.next.data;
     }
 
-    public void addAt(int index,String string){//it will add a particular element at the given particular index.
+    public void add(int index,String string){//it will add a particular element at the given particular index.
         Node newNode=new Node(string);
         Node currentNode=head;
         Node nextNode;
@@ -121,5 +118,16 @@ public class LinkedListUser {
         nextNode=currentNode.next;
         currentNode.next=newNode;
         newNode.next=nextNode;
+    }
+
+    public void print(){
+        Node currentNode=head;
+        System.out.print("LinkedListUser ---> [");
+        for (int i=0;i<size()-1;i++){
+            System.out.print(currentNode.data + " ");
+            currentNode = currentNode.next;
+        }
+        System.out.print(currentNode.data);
+        System.out.println("]");
     }
 }
