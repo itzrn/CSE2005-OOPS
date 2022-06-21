@@ -146,6 +146,23 @@ public class GenericLinkedList<T> {
         return deletedNode.data;
     }
 
+    public void removeNodeWithData(T data){
+        Node<T> previousNode=this.head;
+        Node<T> currentNode=previousNode.next;
+        if (previousNode.data==data) {
+            removeFirst();
+            return;
+        }
+
+        while (currentNode!=null){
+            if (currentNode.data==data){
+                previousNode.next=previousNode.next.next;
+            }
+            currentNode=currentNode.next;
+            previousNode=previousNode.next;
+        }
+    }
+
     public void print(){
         Node<T> currentNode=head;
         System.out.print("GenericLinkedList ---> [");
@@ -320,5 +337,15 @@ public class GenericLinkedList<T> {
 
     public void reverseRecursive(){
         head=recursiveMethodToReverse(head);
+    }
+
+    public GenericLinkedList<T> getSubGenericLinkedList(int start, int end){
+        GenericLinkedList<T> genericLinkedList=new GenericLinkedList<>();
+
+        for (int i=start;i<end;i++){
+            genericLinkedList.add(get(i));
+        }
+
+        return genericLinkedList;
     }
 }
