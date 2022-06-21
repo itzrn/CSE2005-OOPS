@@ -11,6 +11,7 @@ public class GenericLinkedList<T> {
      * getNodeOfIndex(int index), bubbleSort(), linearSearch(T data),
      * binarySearchOfNumber(number data,GenericLinkedList<number> genericLinkedList,int min, int max)
      * reverseUsingExtraSpace(), reverse(), recursiveMethodToReverse(Node<T> head), reverseRecursive()
+     * getSubGenericLinkedList(int start, int end)
      */
     static class Node<N>{
         N data;
