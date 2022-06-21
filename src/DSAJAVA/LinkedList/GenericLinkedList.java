@@ -10,6 +10,7 @@ public class GenericLinkedList<T> {
      * selectionSor(), selectionSortOfStringOnBasisOfLength(GenericLinkedList<string> genericLinkedList),
      * getNodeOfIndex(int index), bubbleSort(), linearSearch(T data),
      * binarySearchOfNumber(number data,GenericLinkedList<number> genericLinkedList,int min, int max)
+     * reverseUsingExtraSpace(), reverse(), recursiveMethodToReverse(Node<T> head), reverseRecursive()
      */
     static class Node<N>{
         N data;
@@ -62,8 +63,11 @@ public class GenericLinkedList<T> {
     }
 
     public T get(int Index){
-        if (head==null || Index>=size())
+        if (Index>=size())
             throw new IndexOutOfBoundsException();
+        else if (head==null)
+            throw new NullPointerException();
+
         Node<T> currentNode=head;
 
         for (int i=0;i<Index;i++){
@@ -76,7 +80,8 @@ public class GenericLinkedList<T> {
         int index=0;
 
         if (head==null)
-            return -1;
+            throw new NullPointerException();
+
         Node<T> currentNode=head;
 
         while (currentNode!=null){
@@ -100,9 +105,9 @@ public class GenericLinkedList<T> {
     public void removeLast(){
         Node<T> currentNode=head;
 
-        for (int i=0;i<size()-2;i++){
+        while (currentNode.next.next!=null)
             currentNode=currentNode.next;
-        }
+
         currentNode.next=null;
     }
 
@@ -144,9 +149,9 @@ public class GenericLinkedList<T> {
     public void print(){
         Node<T> currentNode=head;
         System.out.print("GenericLinkedList ---> [");
-        for (int i=0;i<size()-1;i++){
-            System.out.print(currentNode.data + " ");
-            currentNode = currentNode.next;
+        while (currentNode.next!=null){
+            System.out.print(currentNode.data+" ");
+            currentNode=currentNode.next;
         }
         System.out.print(currentNode.data);
         System.out.println("]");
@@ -181,7 +186,7 @@ public class GenericLinkedList<T> {
         }
     }
 
-    public <number extends Number> void selectionSort(GenericLinkedList<number> genericLinkedList){
+    public <number extends Number> void selectionSortOnBasisOfData(GenericLinkedList<number> genericLinkedList){
         Node<number>currentNode=genericLinkedList.head;
         Node<number>nextNode;
         number temp;
@@ -264,5 +269,68 @@ public class GenericLinkedList<T> {
             return binarySearchOfNumber(data,genericLinkedList,mid+1,max);
         else
             return -1;
+    }
+
+    public void reverseUsingExtraSpace(){//Here it is Space Complexity
+        Node<T> newNode;
+        Node<T> currentNode=head;
+        head=null;
+        while (currentNode!=null){
+            newNode=new Node<>(currentNode.data);
+            if (head!=null){
+                newNode.next=head;
+            }
+            head=newNode;
+            currentNode=currentNode.next;
+        }
+    }
+
+    public void reverse(){
+        if (head==null || head.next==null)
+            return;
+
+
+        Node<T> previousNode=head;
+        Node<T> currentNode=head.next;
+        Node<T> nextNode;
+
+
+        while (currentNode!=null) {
+            nextNode=currentNode.next;
+            currentNode.next=previousNode;
+
+            //update
+            previousNode=currentNode;
+            currentNode=nextNode;
+        }
+
+        head.next=null;
+        head=previousNode;
+    }
+
+    public Node<T> recursiveMethodToReverse(Node<T> head){
+        if (head==null || head.next==null)
+            return head;
+
+        Node<T> newHead=recursiveMethodToReverse(head.next);
+        head.next.next=head;
+        head.next=null;
+        return newHead;
+    }
+
+    public void reverseRecursive(){
+        head=recursiveMethodToReverse(head);
+    }
+
+    public static void main(String[] args) {
+        GenericLinkedList<Integer>genericLinkedList=new GenericLinkedList<>();
+        genericLinkedList.add(9);
+        genericLinkedList.add(6);
+        genericLinkedList.add(3);
+        genericLinkedList.add(7);
+        genericLinkedList.add(5);
+        genericLinkedList.add(6);
+        genericLinkedList.print();
+        genericLinkedList.print();
     }
 }
