@@ -321,16 +321,4 @@ public class GenericLinkedList<T> {
     public void reverseRecursive(){
         head=recursiveMethodToReverse(head);
     }
-
-    public static void main(String[] args) {
-        GenericLinkedList<Integer>genericLinkedList=new GenericLinkedList<>();
-        genericLinkedList.add(9);
-        genericLinkedList.add(6);
-        genericLinkedList.add(3);
-        genericLinkedList.add(7);
-        genericLinkedList.add(5);
-        genericLinkedList.add(6);
-        genericLinkedList.print();
-        genericLinkedList.print();
-    }
 }
