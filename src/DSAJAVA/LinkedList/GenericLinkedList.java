@@ -11,7 +11,9 @@ public class GenericLinkedList<T> {
      * getNodeOfIndex(int index), bubbleSort(), linearSearch(T data),
      * binarySearchOfNumber(number data,GenericLinkedList<number> genericLinkedList,int min, int max)
      * reverseUsingExtraSpace(), reverse(), recursiveMethodToReverse(Node<T> head), reverseRecursive()
-     * getSubGenericLinkedList(int startIncluded, int endExcluded)
+     * getSubGenericLinkedList(int startIncluded, int endExcluded),deleteNthNodeFromEnd(int nFromLast)
+     * toFindMiddleTermUsingHareTurtle(), hasCycle(), makeCycle(int index), addInCycle(T data)
+     * printCycle(), sizeIfCycle(), removeCycle()
      */
     static class Node<N>{
         N data;
@@ -38,6 +40,10 @@ public class GenericLinkedList<T> {
     }
 
     public void add(T data){
+        if (hasCycle()){
+            addInCycle(data);
+            return;
+        }
         Node<T> newNode= new Node<>(data);
 
         if (head==null){
@@ -53,6 +59,9 @@ public class GenericLinkedList<T> {
     }
 
     public int size(){
+        if (hasCycle()){
+            return sizeIfCycle();
+        }
         int length=0;
 
         Node<T> currentNode=head;
@@ -113,6 +122,9 @@ public class GenericLinkedList<T> {
     }
 
     public void add(int index, T data){
+        if (hasCycle()){//if any cycle present in the LinkedList
+            addInCycle(data);
+        }
         Node<T> newNode=new Node<>(data);
         Node<T> currentNode=head;
         Node<T> nextNode;
@@ -165,6 +177,10 @@ public class GenericLinkedList<T> {
     }
 
     public void print(){
+        if (hasCycle()){// if singly linkedList have cycle in it
+            printCycle();
+            return;
+        }
         Node<T> currentNode=head;
         System.out.print("GenericLinkedList ---> [");
         while (currentNode.next!=null){
@@ -173,6 +189,16 @@ public class GenericLinkedList<T> {
         }
         System.out.print(currentNode.data);
         System.out.println("]");
+    }
+
+    public void print(Node<T> head){// this function is just to print from any middle term
+        Node<T> currentNode=head;
+        System.out.print("|");
+        while (currentNode!=null){
+            System.out.print(currentNode.data+"|");
+            currentNode=currentNode.next;
+        }
+        System.out.println();
     }
 
     public void deleteRepeatedElement(){//CTCI Question
@@ -303,17 +329,15 @@ public class GenericLinkedList<T> {
         }
     }
 
-    public void reverse(){
+    public Node<T> reverseOfList(Node<T> head){
         if (head==null || head.next==null)
-            return;
-
+            return head;
 
         Node<T> previousNode=head;
         Node<T> currentNode=head.next;
         Node<T> nextNode;
 
-
-        while (currentNode!=null) {
+        while (currentNode!=null){
             nextNode=currentNode.next;
             currentNode.next=previousNode;
 
@@ -321,9 +345,35 @@ public class GenericLinkedList<T> {
             previousNode=currentNode;
             currentNode=nextNode;
         }
-
         head.next=null;
         head=previousNode;
+
+        return head;
+    }
+
+    public void reverse(){
+        head=reverseOfList(head);
+    }
+
+    public boolean isPalindrome(){
+        int n=size()/2;
+        if (head==null || head.next==null)
+            return true;
+
+        Node<T> currentNode=head;
+        while (n!=0){
+            currentNode=currentNode.next;
+            n--;
+        }
+        Node<T> newHead=reverseOfList(currentNode);
+        Node<T> oldHead=head;
+        while (newHead!=null){
+            if (newHead.data!=oldHead.data)
+                return false;
+            newHead=newHead.next;
+            oldHead=oldHead.next;
+        }
+        return true;
     }
 
     public Node<T> recursiveMethodToReverse(Node<T> head){
@@ -348,5 +398,140 @@ public class GenericLinkedList<T> {
         }
 
         return genericLinkedList;
+    }
+
+    public void deleteNthNodeFromEnd(int nFromLast){
+        Node<T> currentNode = head;
+        int n=size()-nFromLast-1;
+
+        if (n<-1 || nFromLast <=0)
+            throw new NullPointerException();
+
+        if (n==-1){
+            head=head.next;
+            return;
+        }
+
+        while (n!=0){
+            currentNode=currentNode.next;
+            n=n-1;
+        }
+        currentNode.next=currentNode.next.next;
+    }
+
+    public Node<T> toFindMiddleTermUsingHareTurtle(){
+        Node<T> hare=head;
+        Node<T> turtle=head;
+
+        while (hare.next!=null && hare.next.next!=null){
+            hare=hare.next.next;
+            turtle=turtle.next;
+        }
+        return turtle;
+    }
+
+    public boolean hasCycle(){
+        if (head==null)
+            return false;
+
+        Node<T> hare = head;
+        Node<T> turtle = head;
+
+        while (hare!=null && hare.next!=null){
+            hare=hare.next.next;
+            turtle=turtle.next;
+            if (turtle==hare)
+                return true;
+        }
+        return false;
+    }
+
+    Node<T> cyclicHead;
+    public void makeCycle(int index){
+        if (head==null)
+            throw new NullPointerException();
+        if (index>=size())
+            throw new IndexOutOfBoundsException();
+
+        int i=0;
+
+        Node<T> currentNode=head;
+        while (currentNode.next!=null){
+            if (i==index)
+                cyclicHead=currentNode;
+            i++;
+            currentNode=currentNode.next;
+        }
+        if (cyclicHead==null)
+            cyclicHead=currentNode;
+        currentNode.next=cyclicHead;
+    }
+
+    public void addInCycle(T data){//if any cycle present in the LinkedList, it used to add a node to that cycle
+        Node<T> newNode=new Node<>(data);
+        Node<T> currentNode=cyclicHead;
+
+        if (cyclicHead.next==cyclicHead){
+            cyclicHead.next=newNode;
+            newNode.next=cyclicHead;
+            return;
+        }
+
+        while (currentNode.next!=cyclicHead){
+            currentNode=currentNode.next;
+        }
+        currentNode.next=newNode;
+        newNode.next=cyclicHead;
+    }
+
+    public void printCycle(){//if any cycle present in the LinkedList
+        int i =0;
+        Node<T> currentNode=head;
+        System.out.print("|");
+        while (true){
+            if (currentNode==cyclicHead) {
+                i++;
+                if (i==2)
+                    break;
+            }
+            System.out.print(currentNode.data+"|");
+            currentNode=currentNode.next;
+        }
+        System.out.println();
+    }
+
+    public int sizeIfCycle(){//if any cycle present in the LinkedList
+        int i =0;
+        int length=0;
+        Node<T> currentNode=head;
+        while (true){
+            if (currentNode==cyclicHead) {
+                i++;
+                if (i==2)
+                    break;
+            }
+            length++;
+            currentNode=currentNode.next;
+        }
+        System.out.print("This LinkedList Have cycle ---> ");
+        return length;
+    }
+
+    public void removeCycle(){
+        if (hasCycle()) {
+            int i = 0;
+            Node<T> currentNode = head;
+            while (true) {
+                if (currentNode.next == cyclicHead) {
+                    i++;
+                    if (i == 2)
+                        break;
+                }
+                currentNode = currentNode.next;
+            }
+            currentNode.next = null;
+            return;
+        }
+        throw new NullPointerException();
     }
 }
