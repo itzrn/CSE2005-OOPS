@@ -517,21 +517,22 @@ public class GenericLinkedList<T> {
         return length;
     }
 
-    public void removeCycle(){
-        if (hasCycle()) {
-            int i = 0;
-            Node<T> currentNode = head;
-            while (true) {
-                if (currentNode.next == cyclicHead) {
-                    i++;
-                    if (i == 2)
-                        break;
-                }
-                currentNode = currentNode.next;
-            }
-            currentNode.next = null;
-            return;
+    public void removeCycle(){//this is not valid for circular linkedList
+        Node<T> hare = head;
+        Node<T> turtle = head;
+
+        do {
+            hare = hare.next.next;
+            turtle = turtle.next;
+        } while (hare != turtle);
+
+        hare = head;
+
+        while (hare.next != turtle.next) {
+            hare = hare.next;
+            turtle = turtle.next;
         }
-        throw new NullPointerException();
+
+        turtle.next = null;
     }
 }
