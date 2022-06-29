@@ -1,6 +1,6 @@
 package DSAJAVA.Stack;
 
-public class LinkedListStack<T> {
+public class LinkedListStack<T> {//Last In First Out
     static class Node<N>{
         N data;
         Node<N> next;
