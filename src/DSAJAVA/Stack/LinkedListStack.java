@@ -1,5 +1,7 @@
 package DSAJAVA.Stack;
 
+import java.util.EmptyStackException;
+
 public class LinkedListStack<T> {//Last In First Out
     static class Node<N>{
         N data;
@@ -31,7 +33,7 @@ public class LinkedListStack<T> {//Last In First Out
 
     public void push(T data){//Big O(1)
         if (getLength()>0 && size()==getLength())
-            throw new IndexOutOfBoundsException();
+            throw new StackOverflowError();
 
         Node<T> newNode=new Node<>(data);
         if (isEmpty()) {
@@ -46,7 +48,7 @@ public class LinkedListStack<T> {//Last In First Out
 
     public T pop(){//Big O(1)
         if (isEmpty())
-            throw new NoSuchFieldError();
+            throw new EmptyStackException();
         T top= head.data;
 
         //removing the last push
@@ -70,7 +72,7 @@ public class LinkedListStack<T> {//Last In First Out
     public T peek(int position){//Big O(position)
         //top is the first position
         if ((getLength()>0 && position>getLength())||position>size())
-            throw new IndexOutOfBoundsException();
+            throw new StackOverflowError();
 
         Node<T> currentNode=head;
         for (int i=1;i<position;i++){
@@ -81,7 +83,7 @@ public class LinkedListStack<T> {//Last In First Out
 
     public void print(){
         if (isEmpty())
-            throw new NoSuchFieldError();
+            throw new EmptyStackException();
 
         Node<T> currentNode=head;
         System.out.print("Top---> ");
@@ -94,13 +96,13 @@ public class LinkedListStack<T> {//Last In First Out
 
     public T getTop(){
         if (isEmpty())
-            throw new NoSuchFieldError();
+            throw new EmptyStackException();
         return head.data;
     }
 
     public T getBottom(){
         if (isEmpty())
-            throw new NoSuchFieldError();
+            throw new EmptyStackException();
 
         Node<T> currentNode=head;
         while (currentNode.next!=null){
