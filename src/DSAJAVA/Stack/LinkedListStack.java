@@ -1,7 +1,5 @@
 package DSAJAVA.Stack;
 
-import java.util.NoSuchElementException;
-
 public class LinkedListStack<T> {
     static class Node<N>{
         N data;
