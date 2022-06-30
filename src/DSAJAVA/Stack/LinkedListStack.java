@@ -111,4 +111,25 @@ public class LinkedListStack<T> {//Last In First Out
 
         return currentNode.data;
     }
+
+    public void pushAtBottom(T data){//recursive method to push element at bottom
+        // here Address of every data is getting change, means node is not getting
+        // change but data of particular node is getting change
+        if (isEmpty()){
+            push(data);
+            return;
+        }
+        T top=pop();
+        pushAtBottom(data);
+        push(top);
+    }
+
+    public void reverse(LinkedListStack<T> list){// recursive method to reverse the stack
+        // here address of particular data isi getting change
+        if (isEmpty())
+            return;
+        T top= list.pop();
+        reverse(list);
+        pushAtBottom(top);
+    }
 }
