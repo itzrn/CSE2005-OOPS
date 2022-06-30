@@ -132,4 +132,17 @@ public class LinkedListStack<T> {//Last In First Out
         reverse(list);
         pushAtBottom(top);
     }
+
+    public Node<T> reverseRecursive(Node<T> head){// here node get reverse
+        if (head==null||head.next==null)
+            return head;
+        Node<T> newNode = reverseRecursive(head.next);
+        head.next.next=head;
+        head.next=null;
+        return newNode;
+    }
+
+    public void reverse(){
+        head=reverseRecursive(head);
+    }
 }
