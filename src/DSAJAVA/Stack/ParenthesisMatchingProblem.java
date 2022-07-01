@@ -2,7 +2,7 @@ package DSAJAVA.Stack;
 
 public class ParenthesisMatchingProblem {
     public static void solution(String string){
-        LinkedListStack<Character> list=new LinkedListStack<>();
+        MyStack<Character> list=new MyStack<>();
         for (int i=0;i<string.length();i++){
             if (string.charAt(i)=='(')
                 list.push('(');

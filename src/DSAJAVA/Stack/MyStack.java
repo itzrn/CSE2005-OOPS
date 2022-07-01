@@ -2,7 +2,7 @@ package DSAJAVA.Stack;
 
 import java.util.EmptyStackException;
 
-public class LinkedListStack<T> {//Last In First Out
+public class MyStack<T> {//Last In First Out
     static class Node<N>{
         N data;
         Node<N> next;
@@ -13,10 +13,10 @@ public class LinkedListStack<T> {//Last In First Out
         }
     }
 
-    LinkedListStack(){
+    MyStack(){
         this.length=0;
     }
-    LinkedListStack(int length){
+    MyStack(int length){
         this.length=length;
     }
 
@@ -124,7 +124,7 @@ public class LinkedListStack<T> {//Last In First Out
         push(top);
     }
 
-    public void reverse(LinkedListStack<T> list){// recursive method to reverse the stack
+    public void reverse(MyStack<T> list){// recursive method to reverse the stack
         // here address of particular data isi getting change
         if (isEmpty())
             return;
