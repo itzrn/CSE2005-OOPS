@@ -20,14 +20,8 @@ public class StackMin<T extends Number> {
     }
 
     Node<T> head;
-    ArrayList<T> arrayList;
     Node<T> headMin;
     T min;
-
-    StackMin(){
-        arrayList=new ArrayList<>();
-    }
-
 
     public void push(T data){
         Node<T> newNode=new Node<>(data);
