@@ -1,6 +1,5 @@
 package DSAJAVA.Stack.CTCI;
 
-import java.util.ArrayList;
 import java.util.EmptyStackException;
 
 /**
