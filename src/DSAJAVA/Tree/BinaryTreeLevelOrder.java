@@ -1,6 +1,6 @@
 package DSAJAVA.Tree;
 
-class BinaryTreeBreadthWise<T> {
+class BinaryTreeLevelOrder<T> {
     private static class NodeTree<NT>{
         NT data;
         NodeTree<NT> right;
@@ -16,26 +16,31 @@ class BinaryTreeBreadthWise<T> {
     NodeTree<T> root;
     Queue<NodeTree<T>> queue;
 
-    BinaryTreeBreadthWise(){
+    BinaryTreeLevelOrder(){
         queue=new Queue<>();
     }
 
     public void push(T data){//generating tree - breadth wise, here it can crete a node with null data
         NodeTree<T> newNodeTree=new NodeTree<>(data);
-        queue.enQueue(newNodeTree);
+        if (data!=null) {
+            queue.enQueue(newNodeTree);
+        }
 
         if (root==null){
             root=newNodeTree;
             return;
         }
 
-        if (queue.peekFront().left==null){
+        if (queue.peekFront().left==null && data!=null){
             queue.peekFront().left=newNodeTree;
             return;
         }
-
-        queue.peekFront().right=newNodeTree;
-        queue.deQueue();
+        if (queue.peekFront().right==null ){
+            if (data!=null) {
+                queue.peekFront().right = newNodeTree;
+            }
+            queue.deQueue();
+        }
     }
 
     public void print(){
@@ -44,19 +49,23 @@ class BinaryTreeBreadthWise<T> {
 
         Queue<NodeTree<T>> queue1=new Queue<>();
         queue1.enQueue(root);
+        queue1.enQueue(null);
 
         while (!queue1.isQueueEmpty()){
             NodeTree<T> temp=queue1.peekFront();
-            if (temp.data!=null) {
-                System.out.println(temp.data);
-            }
             queue1.deQueue();
-
-            if (temp.left!=null){
-                queue1.enQueue(temp.left);
-            }
-            if (temp.right!=null){
-                queue1.enQueue(temp.right);
+            if (temp==null){
+                System.out.println();
+                if (queue1.isQueueEmpty())
+                    break;
+                else
+                    queue1.enQueue(null);
+            }else {
+                System.out.print(temp.data+" ");
+                if (temp.left!=null)
+                    queue1.enQueue(temp.left);
+                if (temp.right!=null)
+                    queue1.enQueue(temp.right);
             }
         }
     }
