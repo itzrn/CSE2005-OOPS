@@ -1,84 +1,51 @@
 package DSAJAVA.Tree;
 
-class BinaryTreeLevelOrder<T> {
-    private static class NodeTree<NT>{
-        NT data;
-        NodeTree<NT> right;
-        NodeTree<NT> left;
+import java.util.ArrayDeque;
+import java.util.EmptyStackException;
+import java.util.Queue;
 
-        NodeTree(NT data){
+public class BinaryTreeLevelOrder<T> {
+    static class Node<N>{
+        N data;
+        Node<N> left;
+        Node<N> right;
+
+        Node(N data){
             this.data=data;
-            this.right=null;
-            this.left=null;
+            left=null;
+            right=null;
         }
     }
+    Node<T> root;
+    Queue<Node<T>> queue;
 
-    NodeTree<T> root;
-    Queue<NodeTree<T>> queue;
-
-    BinaryTreeLevelOrder(){
-        queue=new Queue<>();
+    BinaryTreeLevelOrder() {
+        queue = new ArrayDeque<>();
     }
 
-    public void push(T data){//generating tree - breadth wise, here it can crete a node with null data
-        NodeTree<T> newNodeTree=new NodeTree<>(data);
-        if (data!=null) {
-            queue.enQueue(newNodeTree);
+    int i=1;
+    public void push(T data) {//This function is pushing data in level order
+        Node<T> newNode = null;
+
+        if (data!=null){
+            newNode=new Node<>(data);
+            queue.add(newNode);
         }
 
-        if (root==null){
-            root=newNodeTree;
+        if (root == null) {
+            root = newNode;
             return;
         }
-
-        if (queue.peekFront().left==null && data!=null){
-            queue.peekFront().left=newNodeTree;
-            return;
-        }
-        if (queue.peekFront().right==null ){
-            if (data!=null) {
-                queue.peekFront().right = newNodeTree;
+        if (!queue.isEmpty()) {
+            if (i == 2) {
+                queue.peek().right = newNode;
+                queue.remove();
+                i=1;
+                return;
             }
-            queue.deQueue();
-        }
+            queue.peek().left = newNode;
+            i=2;
+        }else
+            throw new EmptyStackException();
     }
-
-    public void print(){
-        if (root==null)
-            return;
-
-        Queue<NodeTree<T>> queue1=new Queue<>();
-        queue1.enQueue(root);
-        queue1.enQueue(null);
-
-        while (!queue1.isQueueEmpty()){
-            NodeTree<T> temp=queue1.peekFront();
-            queue1.deQueue();
-            if (temp==null){
-                System.out.println();
-                if (queue1.isQueueEmpty())
-                    break;
-                else
-                    queue1.enQueue(null);
-            }else {
-                System.out.print(temp.data+" ");
-                if (temp.left!=null)
-                    queue1.enQueue(temp.left);
-                if (temp.right!=null)
-                    queue1.enQueue(temp.right);
-            }
-        }
-    }
-
-//    public void print(NodeTree<T> root){//this will print in PreOrder sequence
-//        if (root==null || root.data==null)//while traversing node with null data will get ignored, the process will work on node having data
-//            return;
-//        System.out.print(root.data+" ");
-//        print(root.left);
-//        print(root.right);
-//    }
-//
-//    public void print(){
-//        print(this.root);
-//    }
 }
