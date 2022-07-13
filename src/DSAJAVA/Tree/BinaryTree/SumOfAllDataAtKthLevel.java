@@ -81,17 +81,10 @@ public class SumOfAllDataAtKthLevel extends LevelOrder<Integer> {
 
     public static void main(String[] args) {
         SumOfAllDataAtKthLevel sumOfAllDataAtKthLevel=new SumOfAllDataAtKthLevel();
-        sumOfAllDataAtKthLevel.push(1);
-        sumOfAllDataAtKthLevel.push(2);
-        sumOfAllDataAtKthLevel.push(3);
-        sumOfAllDataAtKthLevel.push(4);
-        sumOfAllDataAtKthLevel.push(null);
-        sumOfAllDataAtKthLevel.push(5);
-        sumOfAllDataAtKthLevel.push(7);
-        sumOfAllDataAtKthLevel.push(null);
-        sumOfAllDataAtKthLevel.push(null);
-        sumOfAllDataAtKthLevel.push(11);
-        sumOfAllDataAtKthLevel.push(12);
-        sumOfAllDataAtKthLevel.summation(5);
+        Integer[] data={1,2,3,4,null,5,7,null,null,11,12};
+        for (int i=0;i<data.length;i++){
+            sumOfAllDataAtKthLevel.push(data[i]);
+        }
+        sumOfAllDataAtKthLevel.summation(3);
     }
 }
