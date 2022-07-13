@@ -14,19 +14,19 @@ public class BinaryTreeSumOfDataOfAllNode extends BinaryTreeLevelOrder<Integer> 
         if (root==null)//this root is of Tree class
             return 0;
 
-        int count=0;
+        int sum=0;
         Stack<Node<Integer>> stack=new Stack<>();
         stack.push(root);
         Node<Integer> temp;
         while (!stack.empty()){
             temp=stack.pop();
-            count=count+ temp.data;
+            sum=sum+ temp.data;
             if (temp.left!=null)
                 stack.push(temp.left);
             if (temp.right!=null)
                 stack.push(temp.right);
         }
 
-        return count;
+        return sum;
     }
 }
