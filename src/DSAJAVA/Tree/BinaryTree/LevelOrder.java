@@ -1,11 +1,11 @@
-package DSAJAVA.Tree;
+package DSAJAVA.Tree.BinaryTree;
 
 
 import java.util.ArrayDeque;
 import java.util.EmptyStackException;
 import java.util.Queue;
 
-public class BinaryTreeLevelOrder<T> {
+public class LevelOrder<T> {
     static class Node<N>{
         N data;
         Node<N> left;
@@ -20,7 +20,7 @@ public class BinaryTreeLevelOrder<T> {
     Node<T> root;
     Queue<Node<T>> queue;
 
-    BinaryTreeLevelOrder() {
+    LevelOrder() {
         queue = new ArrayDeque<>();
     }
 

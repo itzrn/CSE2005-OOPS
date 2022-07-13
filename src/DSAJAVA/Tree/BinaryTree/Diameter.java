@@ -1,6 +1,6 @@
-package DSAJAVA.Tree;
+package DSAJAVA.Tree.BinaryTree;
 
-public class BinaryTreeDiameter<T> extends BinaryTreeHeight<T>{
+public class Diameter<T> extends Height<T> {
 
     public int diameter(Node<T> root){//Big O(N^2) ---> this function can be optimized to liner time function
         if (root==null)

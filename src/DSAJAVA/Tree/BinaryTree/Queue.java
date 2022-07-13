@@ -1,4 +1,4 @@
-package DSAJAVA.Tree;
+package DSAJAVA.Tree.BinaryTree;
 
 public class Queue<T>{
     private static class Node<N>{//First In First Out

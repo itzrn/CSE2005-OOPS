@@ -1,9 +1,9 @@
-package DSAJAVA.Tree;
+package DSAJAVA.Tree.BinaryTree;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class SumOfAllDataAtKthLevel extends BinaryTreeLevelOrder<Integer> {
+public class SumOfAllDataAtKthLevel extends LevelOrder<Integer> {
 
     /**
     public int sum(int level){// My First Approach

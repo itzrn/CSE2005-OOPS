@@ -1,8 +1,8 @@
-package DSAJAVA.Tree;
+package DSAJAVA.Tree.BinaryTree;
 
 import java.util.Stack;
 
-public class BinaryTreeSumOfDataOfAllNode extends BinaryTreeLevelOrder<Integer> {
+public class SumOfDataOfAllNode extends LevelOrder<Integer> {
 
     public Integer sumRecursive(Node<Integer> root){
         if (root==null)

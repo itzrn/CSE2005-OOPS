@@ -1,8 +1,8 @@
-package DSAJAVA.Tree;
+package DSAJAVA.Tree.BinaryTree;
 
 import java.util.Stack;
 
-public class BinaryTreeCountNumberOfNode<T> extends BinaryTreeLevelOrder<T> {//Big O(n)
+public class CountNumberOfNode<T> extends LevelOrder<T> {//Big O(n)
     int c;
     public void totalNodeRecursive(Node<T> root){//
         if (root==null)

@@ -1,9 +1,9 @@
-package DSAJAVA.Tree;
+package DSAJAVA.Tree.BinaryTree;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class BinaryTreeLevelOrderPrint<T> extends BinaryTreeLevelOrder<T> {
+public class LevelOrderPrint<T> extends LevelOrder<T> {
 
     public void print(){
         if (root==null)//this root is of Tree class

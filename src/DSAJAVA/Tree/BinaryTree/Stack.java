@@ -1,4 +1,4 @@
-package DSAJAVA.Tree;
+package DSAJAVA.Tree.BinaryTree;
 
 public class Stack<T>{
     static class Node<N>{

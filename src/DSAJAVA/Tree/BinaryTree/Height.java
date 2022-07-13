@@ -1,6 +1,6 @@
-package DSAJAVA.Tree;
+package DSAJAVA.Tree.BinaryTree;
 
-public class BinaryTreeHeight<T> extends BinaryTreeLevelOrder<T> {//search of iterative way
+public class Height<T> extends LevelOrder<T> {//search of iterative way
 
     public int heightOfTree(Node<T> root){
         if (root==null)
