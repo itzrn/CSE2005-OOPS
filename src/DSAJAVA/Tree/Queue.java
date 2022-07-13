@@ -1,6 +1,6 @@
 package DSAJAVA.Tree;
 
-class Queue<T>{
+public class Queue<T>{
     private static class Node<N>{//First In First Out
         N data;
         Node<N> next;

@@ -1,6 +1,6 @@
 package DSAJAVA.Tree;
 
-class Stack<T>{
+public class Stack<T>{
     static class Node<N>{
         N data;
         Node<N> next;
