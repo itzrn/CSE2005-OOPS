@@ -5,7 +5,7 @@ import java.util.ArrayDeque;
 import java.util.EmptyStackException;
 import java.util.Queue;
 
-public class LevelOrder<T> {
+public class LevelOrderTreeBuilt<T> {
     static class Node<N>{
         N data;
         Node<N> left;
@@ -20,7 +20,7 @@ public class LevelOrder<T> {
     Node<T> root;
     Queue<Node<T>> queue;
 
-    LevelOrder() {
+    LevelOrderTreeBuilt() {
         queue = new ArrayDeque<>();
     }
 
