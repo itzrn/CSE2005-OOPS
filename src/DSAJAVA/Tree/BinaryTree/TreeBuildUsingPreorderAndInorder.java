@@ -54,13 +54,4 @@ public class TreeBuildUsingPreorderAndInorder<T> {
     public void builtTree(T[] preOrder,T[] inOrder,int startIndex,int endIndex){
         root=buildTreeRecursive(preOrder,inOrder,startIndex,endIndex);
     }
-
-    public void printInorder(Node<T> root){
-        if (root==null)
-            return;
-
-        printInorder(root.left);
-        System.out.println(root.data);
-        printInorder(root.right);
-    }
 }

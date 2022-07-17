@@ -49,20 +49,4 @@ public class TreeBuildUsingPostorderAndInorder<T> {
 
         return newNode;
     }
-
-    public void printInorder(Node<T> root){
-        if (root==null)
-            return;
-
-        printInorder(root.left);
-        System.out.println(root.data);
-        printInorder(root.right);
-    }
-
-    public static void main(String[] args) {
-        TreeBuildUsingPostorderAndInorder<Integer> buildTreeUsingPostorderAndInorder=new TreeBuildUsingPostorderAndInorder<>(8);
-        Integer[] postOrder={18,11,19,20,15,9,16,10,6};
-        Integer[] inOrder={18,11,9,19,15,20,6,10,16};
-        buildTreeUsingPostorderAndInorder.printInorder(buildTreeUsingPostorderAndInorder.buildTree(postOrder,inOrder,0,8));
-    }
 }
