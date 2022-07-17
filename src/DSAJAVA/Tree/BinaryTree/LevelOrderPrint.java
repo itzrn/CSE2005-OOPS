@@ -3,7 +3,7 @@ package DSAJAVA.Tree.BinaryTree;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class LevelOrderPrint<T> extends LevelOrderTreeBuilt<T> {
+public class LevelOrderPrint<T> extends LevelOrderTreeBuild<T> {
 
     public void print(){
         if (root==null)//this root is of Tree class

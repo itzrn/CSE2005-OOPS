@@ -1,6 +1,6 @@
 package DSAJAVA.Tree.BinaryTree;
 
-public class InOrderPrint<T> extends LevelOrderTreeBuilt<T> {
+public class InOrderPrint<T> extends LevelOrderTreeBuild<T> {
 
     public void printRecursive(Node<T> root){//InOrder Traversal
         if (root==null)

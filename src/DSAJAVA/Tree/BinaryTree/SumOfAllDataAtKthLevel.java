@@ -3,7 +3,7 @@ package DSAJAVA.Tree.BinaryTree;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class SumOfAllDataAtKthLevel extends LevelOrderTreeBuilt<Integer> {
+public class SumOfAllDataAtKthLevel extends LevelOrderTreeBuild<Integer> {
 
     /**
     public int sum(int level){// My First Approach

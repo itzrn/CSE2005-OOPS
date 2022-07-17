@@ -1,6 +1,6 @@
 package DSAJAVA.Tree.BinaryTree;
 
-public class PresenceOfSubTree<T> extends LevelOrderTreeBuilt<T> {
+public class PresenceOfSubTree<T> extends LevelOrderTreeBuild<T> {
 
     public boolean isIdentical(Node<T> root, Node<T> subRoot){
         if (root==null && subRoot==null)

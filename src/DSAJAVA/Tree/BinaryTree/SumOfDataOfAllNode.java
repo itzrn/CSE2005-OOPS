@@ -2,7 +2,7 @@ package DSAJAVA.Tree.BinaryTree;
 
 import java.util.Stack;
 
-public class SumOfDataOfAllNode extends LevelOrderTreeBuilt<Integer> {
+public class SumOfDataOfAllNode extends LevelOrderTreeBuild<Integer> {
 
     public Integer sumRecursive(Node<Integer> root){
         if (root==null)
