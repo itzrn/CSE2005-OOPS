@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Test_1 {
+public class MultiplyNumber {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the Number ---> ");

@@ -1,4 +1,4 @@
-package FAT;
+package FATSem2;
 
 class Line1{
     int count=0;

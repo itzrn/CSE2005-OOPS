@@ -10,17 +10,6 @@ package DSAJAVA.Tree.BinaryTree;
  * return the node
  */
 public class TreeBuildUsingPreorderAndInorder<T> {
-    static class Node<N>{
-        N data;
-        Node<N> right;
-        Node<N> left;
-
-        Node(N data){
-            this.data=data;
-            right=null;
-            left=null;
-        }
-    }
     int index;
     Node<T> root;
 

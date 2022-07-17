@@ -3,18 +3,6 @@ package DSAJAVA.Tree.BinaryTree;
 import java.util.Stack;
 
 public class PreOrderTreeBuilt<T> {
-    static class Node<N>{
-        N data;
-        Node<N> left;
-        Node<N> right;
-
-        Node( N data){
-            this.data=data;
-            this.left=null;
-            this.right=null;
-        }
-    }
-
     Node<T> root;
     Stack<Node<T>> stack;
 
@@ -22,7 +10,7 @@ public class PreOrderTreeBuilt<T> {
         stack=new Stack<>();
     }
 
-    public void push(T data){
+    public void push(T data){//iterative way
         Node<T> newNode=null;
         if (data!=null)
             newNode=new Node<>(data);

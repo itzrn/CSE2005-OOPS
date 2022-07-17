@@ -6,17 +6,6 @@ import java.util.EmptyStackException;
 import java.util.Queue;
 
 public class LevelOrderTreeBuild<T> {
-    static class Node<N>{
-        N data;
-        Node<N> left;
-        Node<N> right;
-
-        Node(N data){
-            this.data=data;
-            left=null;
-            right=null;
-        }
-    }
     Node<T> root;
     Queue<Node<T>> queue;
 

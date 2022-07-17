@@ -1,4 +1,4 @@
-package FAT;
+package FATSem2;
 class Line2{
     int count=0;
     String[] talk={"Aryan ---> Hy Hello Nayan","Nayan ---> Hello Aryan","Aryan ---> Kasa Ha bhai tu?",
