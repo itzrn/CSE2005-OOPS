@@ -16,26 +16,34 @@ public class TreeBuildUsingPostorderAndInorder<T> {
         this.index=index;
     }
 
-    private int searchPosition(T[] inOrder,T currentData,int start,int end){
-        for (int i=start;i<=end;i++){
+    private int searchPosition(T[] inOrder,T currentData,int startIndex,int endIndex){
+        for (int i=startIndex;i<=endIndex;i++){
             if (inOrder[i]==currentData)
                 return i;
         }
         return -1;
     }
 
-    public Node<T> buildTree(T[] postOrder,T[] inOrder, int start,int end){
-        if (start>end)
+    public Node<T> buildTree(T[] postOrder,T[] inOrder, int startIndex,int endIndex){
+        if (startIndex>endIndex)
             return null;
         T currentData=postOrder[index];
         index--;
         Node<T> newNode=new Node<>(currentData);
-        if (start==end)
+        if (startIndex==endIndex)
             return newNode;
-        int position=searchPosition(inOrder,currentData,start,end);
-        newNode.right=buildTree(postOrder,inOrder,position+1,end);
-        newNode.left=buildTree(postOrder,inOrder,start,position-1);
+        int position=searchPosition(inOrder,currentData,startIndex,endIndex);
+        newNode.right=buildTree(postOrder,inOrder,position+1,endIndex);
+        newNode.left=buildTree(postOrder,inOrder,startIndex,position-1);
 
         return newNode;
+    }
+
+    public static void main(String[] args) {
+        TreeBuildUsingPostorderAndInorder<Integer> tree=new TreeBuildUsingPostorderAndInorder<>(6);
+        Integer[] postOrder={4,5,2,6,7,3,1};
+        Integer[] inOrder={4,2,5,1,6,3,7};
+
+        tree.buildTree(postOrder,inOrder,0,6);
     }
 }

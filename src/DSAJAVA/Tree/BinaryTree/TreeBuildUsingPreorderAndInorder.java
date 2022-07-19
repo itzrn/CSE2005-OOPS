@@ -43,4 +43,13 @@ public class TreeBuildUsingPreorderAndInorder<T> {
     public void builtTree(T[] preOrder,T[] inOrder,int startIndex,int endIndex){
         root=buildTreeRecursive(preOrder,inOrder,startIndex,endIndex);
     }
+
+
+
+    public static void main(String[] args) {
+        TreeBuildUsingPreorderAndInorder<Integer> tree=new TreeBuildUsingPreorderAndInorder<>();
+        Integer[] preOrder={1,2,4,5,3,6,7};
+        Integer[] inOrder={4,2,5,1,6,3,7};
+        tree.builtTree(preOrder,inOrder,0,6);
+    }
 }
