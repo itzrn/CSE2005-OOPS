@@ -36,6 +36,25 @@ public class LowestCommonAncestor<T> extends LevelOrderTreeBuild<T>{
         return temp;
     }
 
+    public Node<T> LCARecursive(Node<T> root,T data1,T data2){
+        if (root==null)
+            return null;
+
+        if (root.data==data1 || root.data==data2)
+            return root;
+
+        Node<T> left=LCARecursive(root.left, data1, data2);
+        Node<T> right=LCARecursive(root.right, data1, data2);
+
+        if (left!=null && right!=null)
+            return root;
+        if (right==null && left==null)
+            return null;
+        if (left!=null)
+            return LCARecursive(root.left, data1, data2);
+        return LCARecursive(root.right, data1, data2);
+    }
+
     public static void main(String[] args) {
         LowestCommonAncestor<Integer> lcd=new LowestCommonAncestor<>();
         lcd.push(1);
