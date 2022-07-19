@@ -1,0 +1,50 @@
+package DSAJAVA.Tree.BinaryTree;
+
+import java.util.Stack;
+
+public class LowestCommonAncestor<T> extends LevelOrderTreeBuild<T>{
+
+
+    public boolean getPath(Stack<Node<T>> stack, T data, Node<T> root){
+        if (root==null)
+            return false;
+
+        stack.push(root);
+        if (root.data==data)
+            return true;
+
+        if (getPath(stack,data,root.left) || getPath(stack,data,root.right))
+            return true;
+
+        stack.pop();
+        return false;
+    }
+
+    public Node<T> LCD(Node<T> root,T data1,T data2){
+        Stack<Node<T>> stack1=new Stack<>();
+        Stack<Node<T>> stack2=new Stack<>();
+
+        if (!getPath(stack1, data1, root) || !getPath(stack2, data2, root))
+            return null;
+        Node<T> temp=null;
+        for (int i=0;i<stack1.size();i++){
+            if (stack1.get(i+1)!=stack2.get(i+1)){
+                temp=stack1.get(i);
+                break;
+            }
+        }
+        return temp;
+    }
+
+    public static void main(String[] args) {
+        LowestCommonAncestor<Integer> lcd=new LowestCommonAncestor<>();
+        lcd.push(1);
+        lcd.push(2);
+        lcd.push(3);
+        lcd.push(4);
+        lcd.push(5);
+        lcd.push(6);
+        lcd.push(7);
+        System.out.println(lcd.LCD(lcd.root,4,7).data);
+    }
+}
