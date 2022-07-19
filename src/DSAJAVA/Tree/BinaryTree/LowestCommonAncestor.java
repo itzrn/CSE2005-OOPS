@@ -20,7 +20,7 @@ public class LowestCommonAncestor<T> extends LevelOrderTreeBuild<T>{
         return false;
     }
 
-    public Node<T> LCD(Node<T> root,T data1,T data2){
+    public Node<T> LCA(Node<T> root,T data1,T data2){
         Stack<Node<T>> stack1=new Stack<>();
         Stack<Node<T>> stack2=new Stack<>();
 
@@ -64,6 +64,6 @@ public class LowestCommonAncestor<T> extends LevelOrderTreeBuild<T>{
         lcd.push(5);
         lcd.push(6);
         lcd.push(7);
-        System.out.println(lcd.LCD(lcd.root,4,7).data);
+        System.out.println(lcd.LCA(lcd.root,4,7).data);
     }
 }
