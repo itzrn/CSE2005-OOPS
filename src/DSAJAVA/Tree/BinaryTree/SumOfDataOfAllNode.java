@@ -29,4 +29,17 @@ public class SumOfDataOfAllNode extends LevelOrderTreeBuild<Integer> {
 
         return sum;
     }
+
+    public static void main(String[] args) {
+        SumOfDataOfAllNode sum=new SumOfDataOfAllNode();
+        sum.push(1);
+        sum.push(2);
+        sum.push(3);
+        sum.push(4);
+        sum.push(5);
+        sum.push(6);
+        sum.push(7);
+        sum.push(8);
+        System.out.println(sum.sumRecursive(sum.root));
+    }
 }

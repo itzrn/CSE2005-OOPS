@@ -29,4 +29,17 @@ public class LeftView<T> extends LevelOrderTreeBuild<T>{
             }
         }
     }
+
+    public static void main(String[] args) {
+        LeftView<Integer> leftView=new LeftView<>();
+        leftView.push(1);
+        leftView.push(2);
+        leftView.push(3);
+        leftView.push(4);
+        leftView.push(5);
+        leftView.push(6);
+        leftView.push(7);
+        leftView.push(8);
+        leftView.leftView();
+    }
 }

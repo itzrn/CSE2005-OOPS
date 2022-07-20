@@ -30,4 +30,17 @@ public class LevelOrderPrint<T> extends LevelOrderTreeBuild<T> {
             }
         }
     }
+
+    public static void main(String[] args) {
+        LevelOrderPrint<Integer> levelOrderPrint=new LevelOrderPrint<>();
+        levelOrderPrint.push(1);
+        levelOrderPrint.push(2);
+        levelOrderPrint.push(3);
+        levelOrderPrint.push(4);
+        levelOrderPrint.push(5);
+        levelOrderPrint.push(6);
+        levelOrderPrint.push(7);
+        levelOrderPrint.push(8);
+        levelOrderPrint.print();
+    }
 }

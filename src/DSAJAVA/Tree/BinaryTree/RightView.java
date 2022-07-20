@@ -28,4 +28,17 @@ public class RightView<T> extends LevelOrderTreeBuild<T>{
             }
         }
     }
+
+    public static void main(String[] args) {
+        RightView<Integer> rightView=new RightView<>();
+        rightView.push(1);
+        rightView.push(2);
+        rightView.push(3);
+        rightView.push(4);
+        rightView.push(5);
+        rightView.push(6);
+        rightView.push(7);
+        rightView.push(8);
+        rightView.rightView();
+    }
 }

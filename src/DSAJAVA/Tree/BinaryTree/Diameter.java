@@ -53,4 +53,20 @@ public class Diameter<T> extends Height<T> {
     public int diameterOptimized(){
         return diameterOptimized(root).diameter;
     }
+
+    public static void main(String[] args) {
+        Diameter<Integer> diameter=new Diameter<>();
+        diameter.push(1);
+        diameter.push(2);
+        diameter.push(3);
+        diameter.push(4);
+        diameter.push(5);
+        diameter.push(6);
+        diameter.push(7);
+        diameter.push(8);
+        diameter.push(9);
+        diameter.push(10);
+        System.out.println(diameter.diameter(diameter.root));
+        System.out.println(diameter.diameterOptimized());
+    }
 }
