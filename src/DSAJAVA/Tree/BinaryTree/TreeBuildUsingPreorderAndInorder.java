@@ -5,7 +5,7 @@ package DSAJAVA.Tree.BinaryTree;
  * pick element from preorder & create node
  * Increment preorder index
  * search the picked element's pos in inorder
- * call to build left subtree from inorder's 0 tto pos-1
+ * call to build left subtree from in order's 0 tto pos-1
  * call to build right subtree from inorder pos+1 to n
  * return the node
  */
