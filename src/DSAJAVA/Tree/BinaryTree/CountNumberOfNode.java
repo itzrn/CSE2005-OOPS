@@ -49,4 +49,17 @@ public class CountNumberOfNode<T> extends LevelOrderTreeBuild<T> {//Big O(n)
 
         return count;
     }
+
+    public static void main(String[] args) {
+        CountNumberOfNode<Integer> countNumberOfNode=new CountNumberOfNode<>();
+        countNumberOfNode.push(1);
+        countNumberOfNode.push(1);
+        countNumberOfNode.push(1);
+        countNumberOfNode.push(1);
+        countNumberOfNode.push(1);
+        countNumberOfNode.push(1);
+        countNumberOfNode.push(1);
+        countNumberOfNode.push(1);
+        System.out.println(countNumberOfNode.totalNodeIterative());
+    }
 }

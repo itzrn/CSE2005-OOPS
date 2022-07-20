@@ -29,4 +29,17 @@ public class BalancedHeightTree<T> extends LevelOrderTreeBuild<T>{
 
         return (leftHeight - rightHeight) <= 1;
     }
+
+    public static void main(String[] args) {
+        BalancedHeightTree<Integer> balancedHeightTree=new BalancedHeightTree<>();
+        balancedHeightTree.push(1);
+        balancedHeightTree.push(2);
+        balancedHeightTree.push(3);
+        balancedHeightTree.push(4);
+        balancedHeightTree.push(5);
+        balancedHeightTree.push(6);
+        balancedHeightTree.push(7);
+        balancedHeightTree.push(8);
+        System.out.println(balancedHeightTree.isBalanced(balancedHeightTree.root));
+    }
 }
