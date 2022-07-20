@@ -1,6 +1,6 @@
 package DSAJAVA.Tree.BinaryTree;
 
-public class ShortestDistanceBetweenTwoNodes2<T> extends LevelOrderTreeBuild<T>{
+public class ShortestDistanceBetweenTwoNodes<T> extends LevelOrderTreeBuild<T>{
 
     public Node<T> LCARecursive(Node<T> root,T data1,T data2){
         if (root==null)
@@ -46,7 +46,7 @@ public class ShortestDistanceBetweenTwoNodes2<T> extends LevelOrderTreeBuild<T>{
 
 
     public static void main(String[] args) {
-        ShortestDistanceBetweenTwoNodes2<Integer> sr=new ShortestDistanceBetweenTwoNodes2<>();
+        ShortestDistanceBetweenTwoNodes<Integer> sr=new ShortestDistanceBetweenTwoNodes<>();
         sr.push(1);
         sr.push(2);
         sr.push(3);
