@@ -2,7 +2,7 @@ package DSAJAVA.Tree.BinaryTree;
 
 import java.util.Stack;
 
-public class ShortestDistanceBetweenTwoNodesMyFirstApproach<T> extends LevelOrderTreeBuild<T>{
+public class ShortestDistanceBetweenTwoNodes1<T> extends LevelOrderTreeBuild<T>{
     Stack<Node<T>> stack1;
     Stack<Node<T>> stack2;
 
@@ -38,7 +38,7 @@ public class ShortestDistanceBetweenTwoNodesMyFirstApproach<T> extends LevelOrde
     }
 
     public static void main(String[] args) {
-        ShortestDistanceBetweenTwoNodesMyFirstApproach<Integer> sdbtn=new ShortestDistanceBetweenTwoNodesMyFirstApproach<>();
+        ShortestDistanceBetweenTwoNodes1<Integer> sdbtn=new ShortestDistanceBetweenTwoNodes1<>();
         sdbtn.push(1);
         sdbtn.push(2);
         sdbtn.push(3);
