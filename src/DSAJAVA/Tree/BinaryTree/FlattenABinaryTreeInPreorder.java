@@ -13,18 +13,18 @@ package DSAJAVA.Tree.BinaryTree;
  * 4- join right subtree with left tail
  * 5- return right tail
  */
-public class FlattenABinaryTree<T> extends LevelOrderTreeBuild<T>{
+public class FlattenABinaryTreeInPreorder<T> extends LevelOrderTreeBuild<T>{
 
     public Node<T> flatten(Node<T> root){//My First Approach
         if (root==null)
             return null;
 
-        Node<T> rightNode=root.right;
+        Node<T> rightNode=root.right;//saving every right subTree
         root.right=flatten(root.left);
         root.left=null;
 
         Node<T> t=root;
-        while (t.right!=null){
+        while (t.right!=null){//reaching to end node of flattened left SubTree to connect the right subTree
             t=t.right;
         }
 
@@ -54,7 +54,7 @@ public class FlattenABinaryTree<T> extends LevelOrderTreeBuild<T>{
 
 
     public static void main(String[] args) {
-        FlattenABinaryTree<Integer> flattenABinaryTree=new FlattenABinaryTree<>();
+        FlattenABinaryTreeInPreorder<Integer> flattenABinaryTree=new FlattenABinaryTreeInPreorder<>();
         flattenABinaryTree.push(1);
         flattenABinaryTree.push(2);
         flattenABinaryTree.push(3);
