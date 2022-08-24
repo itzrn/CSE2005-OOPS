@@ -153,42 +153,47 @@ public class PracticeDSA_01 {
 
         practiceDSA_01.operationsToPerform();
         int n = sc.nextInt();
-        while (n!=8){
-            check = true;
-            while (check) {
-                if (practiceDSA_01.filledIndex == -1) {
-                    if (n == 1 || n == 2 || n == 3) {
+        while (n!=8) {
+            if (n >= 1 && n <= 8) {
+                check = true;
+                while (check) {
+                    if (practiceDSA_01.filledIndex == -1) {
+                        if (n == 1 || n == 2 || n == 3) {
+                            practiceDSA_01.output(sc, n);
+                            check = false;
+                        } else {
+                            System.out.println("Enter Valid Input!");
+                            n = sc.nextInt();
+                            if (n == 8)
+                                break;
+                        }
+                    } else if (practiceDSA_01.filledIndex == practiceDSA_01.length - 1) {
+                        if (n == 4 || n == 5 || n == 6 || n == 7) {
+                            practiceDSA_01.output(sc, n);
+                            check = false;
+                        } else {
+                            System.out.println("Enter Valid Input");
+                            n = sc.nextInt();
+                            if (n == 8)
+                                break;
+                        }
+                    } else {
                         practiceDSA_01.output(sc, n);
                         check = false;
-                    }else {
-                        System.out.println("Enter Valid Input!");
-                        n = sc.nextInt();
-                        if (n==8)
-                            break;
                     }
-                }else if (practiceDSA_01.filledIndex == practiceDSA_01.length-1){
-                    if (n==4 || n==5 || n==6 || n==7) {
-                        practiceDSA_01.output(sc, n);
-                        check = false;
-                    }else {
-                        System.out.println("Enter Valid Input");
-                        n = sc.nextInt();
-                        if (n==8)
-                            break;
-                    }
-                }else {
-                    practiceDSA_01.output(sc,n);
-                    check=false;
                 }
+                if (n == 8)
+                    break;
+                practiceDSA_01.operationsToPerform();
+                if (practiceDSA_01.filledIndex != -1 && practiceDSA_01.filledIndex != practiceDSA_01.length - 1) {
+                    System.out.println("All Operations can be performed!");
+                    System.out.println();
+                }
+                n = sc.nextInt();
+            }else {
+                System.out.println("Enter Valid Input!");
+                n= sc.nextInt();
             }
-            if (n==8)
-                break;
-            practiceDSA_01.operationsToPerform();
-            if (practiceDSA_01.filledIndex!=-1 && practiceDSA_01.filledIndex!= practiceDSA_01.length-1) {
-                System.out.println("All Operations can be performed!");
-                System.out.println();
-            }
-            n= sc.nextInt();
         }
     }
 }
