@@ -17,6 +17,7 @@ public class GenericLinkedList<T> {
      */
     static class Node<N>{
         N data;
+        GenericLinkedList<N> list;
         Node<N> next;
 
         Node(N data){
@@ -122,9 +123,10 @@ public class GenericLinkedList<T> {
     }
 
     public void add(int index, T data){
-        if (hasCycle()){//if any cycle present in the LinkedList
-            addInCycle(data);
-        }
+//        if (hasCycle()){//if any cycle present in the LinkedList
+//            addInCycle(data);
+//            return;
+//        }
         Node<T> newNode=new Node<>(data);
         Node<T> currentNode=head;
         Node<T> nextNode;
@@ -159,7 +161,7 @@ public class GenericLinkedList<T> {
         return deletedNode.data;
     }
 
-    public void removeNodeWithData(T data){
+    public void removeNodeWithGivenData(T data){
         Node<T> previousNode=this.head;
         Node<T> currentNode=previousNode.next;
         if (previousNode.data==data) {
@@ -420,6 +422,9 @@ public class GenericLinkedList<T> {
     }
 
     public Node<T> toFindMiddleTermUsingHareTurtle(){
+        if(head==null||head.next==null||head.next.next==null)
+            throw new NoSuchFieldError();
+
         Node<T> hare=head;
         Node<T> turtle=head;
 
@@ -517,7 +522,7 @@ public class GenericLinkedList<T> {
         return length;
     }
 
-    public void removeCycle(){//this is not valid for circular linkedList
+    public void removeCycle(){//this is even valid for circular LinkedList
         Node<T> hare = head;
         Node<T> turtle = head;
 
@@ -527,12 +532,143 @@ public class GenericLinkedList<T> {
         } while (hare != turtle);
 
         hare = head;
-
+        if (hare==turtle){
+            while (hare.next!=turtle){
+                hare=hare.next;
+            }
+            hare.next=null;
+            return;
+        }
         while (hare.next != turtle.next) {
             hare = hare.next;
             turtle = turtle.next;
         }
 
         turtle.next = null;
+    }
+
+    public void sumOfList(long a,long b){
+        int carry=0;
+        int sum;
+        GenericLinkedList<Integer> genericLinkedList01=new GenericLinkedList<>();
+        GenericLinkedList<Integer> genericLinkedList02=new GenericLinkedList<>();
+        GenericLinkedList<Integer> sumList=new GenericLinkedList<>();
+        while (a>0 || b>0){
+            genericLinkedList01.add((int) a%10);
+            genericLinkedList02.add((int) b%10);
+            a=a/10;
+            b=b/10;
+        }
+        Node<Integer> currentNode01 = genericLinkedList01.head;
+        Node<Integer> currentNode02 = genericLinkedList02.head;
+
+        while (currentNode01!=null){
+            sum=currentNode01.data+ currentNode02.data+carry;
+            if (sum>9){
+                sumList.add(sum-10);
+                carry=1;
+            }else {
+                sumList.add(sum);
+                carry=0;
+            }
+            currentNode01=currentNode01.next;
+            currentNode02=currentNode02.next;
+        }
+        if (carry==1)
+            sumList.add(1);
+        sumList.reverse();
+        currentNode01=sumList.head;
+        while (currentNode01!=null){
+            System.out.print(currentNode01.data);
+            currentNode01=currentNode01.next;
+        }
+    }
+
+    public void deleteMiddleNode(){//In even Number of List it will delete second middle term
+        if(head==null||head.next==null||head.next.next==null)
+            throw new NoSuchFieldError();
+
+        Node<T> hare=head.next;
+        Node<T> turtle=head;
+
+        while (hare.next!=null&&hare.next.next!=null){
+            turtle=turtle.next;
+            hare=hare.next.next;
+        }
+        turtle.next=turtle.next.next;
+    }
+
+    public void intersection(GenericLinkedList<T> l1,GenericLinkedList<T> l2){
+        Node<T> head1=l1.head;
+        Node<T> head2=l2.head;
+        Node<T> temp=head2;
+        GenericLinkedList<T> intersection=new GenericLinkedList<>();
+
+        while (head1!=null){
+            while (head2!=null){
+                if (head1.data==head2.data)
+                    intersection.add(head2.data);
+                head2=head2.next;
+            }
+            head2=temp;
+            head1=head1.next;
+        }
+        intersection.print();
+    }
+
+    public void makeTwoLinkedListIntersect(GenericLinkedList<T> list1,GenericLinkedList<T> list2, int index){
+        Node<T> currentNode01=list1.head;
+        Node<T> currentNode02=list2.head;
+        while (currentNode02.next!=null)
+            currentNode02=currentNode02.next;
+        while (index!=0){
+            currentNode01=currentNode01.next;
+            index--;
+        }
+        currentNode02.next=currentNode01;
+    }
+
+//    public boolean checkTwoListsIntersection(GenericLinkedList<T> list1,GenericLinkedList<T> list2){
+//
+//    }
+    public static void main(String[] args) {
+        GenericLinkedList<Integer> genericLinkedList=new GenericLinkedList<>();
+        GenericLinkedList<Integer> genericLinkedList1=new GenericLinkedList<>();
+        genericLinkedList.add(1);
+        genericLinkedList.add(2);
+        genericLinkedList.add(3);
+        genericLinkedList.add(4);
+        genericLinkedList.add(5);
+        genericLinkedList.add(6);
+        genericLinkedList.add(7);
+        genericLinkedList.add(8);
+        genericLinkedList.add(9);
+        genericLinkedList.add(10);
+        genericLinkedList.add(11);
+        genericLinkedList1.add(23);
+        genericLinkedList1.add(2);
+        genericLinkedList1.add(3);
+        genericLinkedList1.add(24);
+        genericLinkedList1.add(7);
+        genericLinkedList1.add(89);
+        genericLinkedList1.add(80);
+        genericLinkedList1.add(8);
+        genericLinkedList1.add(456);
+        genericLinkedList1.add(96);
+        genericLinkedList.makeTwoLinkedListIntersect(genericLinkedList1,genericLinkedList,4);
+        genericLinkedList.print();
+        genericLinkedList1.print();
+//        genericLinkedList.intersection(genericLinkedList1,genericLinkedList);
+//        genericLinkedList.makeCycle(6);
+//        genericLinkedList.add(67);
+//        genericLinkedList.print();
+
+//        genericLinkedList.deleteMiddleNode();
+//        genericLinkedList.print();
+//        System.out.println(genericLinkedList.size());
+//        genericLinkedList.removeCycle();
+//        genericLinkedList.print();
+//        System.out.println(genericLinkedList.size());
+//        genericLinkedList.sumOfList(3456,789787);
     }
 }

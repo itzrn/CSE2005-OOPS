@@ -119,15 +119,4 @@ public class LinkedListUser {
         currentNode.next=newNode;
         newNode.next=nextNode;
     }
-
-    public void print(){
-        Node currentNode=head;
-        System.out.print("LinkedListUser ---> [");
-        for (int i=0;i<size()-1;i++){
-            System.out.print(currentNode.data + " ");
-            currentNode = currentNode.next;
-        }
-        System.out.print(currentNode.data);
-        System.out.println("]");
-    }
 }
