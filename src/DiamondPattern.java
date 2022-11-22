@@ -11,10 +11,10 @@ class DiamondPattern {
                 System.out.print(" ");
             }
             for (int k=1;k<=i;k++){
-                System.out.print("*");
+                System.out.print("* ");
             }
             for (int l=1;l<i;l++){
-                System.out.print("*");
+                System.out.print("*  ");
             }
             System.out.println();
         }
@@ -24,10 +24,10 @@ class DiamondPattern {
                 System.out.print(" ");
             }
             for (int k=n;k>=i;k--){
-                System.out.print("*");
+                System.out.print("* ");
             }
             for (int l=n-1;l>=i;l--){
-                System.out.print("*");
+                System.out.print("*  ");
             }
 
             System.out.println();
